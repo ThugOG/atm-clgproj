@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>Welcome to SBI</title>
+		<link rel="stylesheet" type=text/css href="css/back.css">
+	</head>
+	<body onload="form1.reset();">
+		<form id="form1" action= "/loginCrd" method="POST">
+		
+		<div class="transbox">
+			<h1 align="center"><img src="./images/sbilogo.png"></img></h1>
+		<p align="center" id="para1">
+		<table>
+			<tr>
+				<th>
+					<h1>Enter the debit card number</h1>
+					<input type="password" name="card" required size="16" style="height: 50px; font-size:20pt;" minlength="16" maxlength="16" placeholder="1234567887654321"><br>
+					<h1>PIN:</h1> <input type="password" name="pin"  required size="4" style="height: 50px; font-size:20px;" minlength="4" maxlength="4" >
+				</th>
+			</tr>
+		</table><br><br>
+		<input type="submit" value="submit" size="20" style="height: 50px; font-size:20pt">
+		</p>
+    <p align="center"><input type="image" src="images/insert_card.png" name="insertCard"  id="insertCard" onclick="insertCard()"></p>
+		</div>
+		</form>
+	</body>
+</html>

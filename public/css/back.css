@@ -1,0 +1,93 @@
+body 
+{
+	background-image:url("../images/sun.jpg");
+	background-repeat:no-repeat;
+	background-size:100%;
+	background-size: cover;
+	background-color:#0000FF;
+	margin:auto;
+	align-self: right;
+
+}
+div.transbox {
+  margin: 20px;
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #ffffff;
+  border: 1px solid black;
+  opacity: 0.6;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
+  border-radius:10px;
+}
+div.transbox p {
+  margin: 5%;
+  font-weight: bold;
+  color: #000000;
+}
+
+#whiteall
+{
+	background-image: url(../images/Untitled.jpg);
+	position: absolute;
+	height:470px;
+	width: 100%;
+	opacity:0.7;
+	border-radius: 12px;
+	top:120px;
+}
+#h1
+{
+	text-align:left;
+	position: absolute;
+	top:120px;
+	left: 85px;
+
+}
+#h2
+{
+	text-align:right;
+	position: absolute;
+	top:120px;
+	right: 85px;
+}
+.vertical-center {
+	margin: 0;
+	position: absolute;
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
+#h3
+{
+	text-align:left;
+	position: absolute;
+	top:340px;
+	right: 85px;
+}
+#h4
+{
+	text-align:right;
+	position: absolute;
+	top:340px;
+	left: 85px;
+}
+#h5
+{
+	text-align:center;
+}
+#h6
+{
+	text-align:center;
+}
+#h7
+{
+	text-align:center;
+}
+#h8
+{
+	text-align:center;
+}
+#h9
+{
+	text-align:center;
+}

@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>Balance Enquiry</title>
+		<link rel="stylesheet" type=text/css href="css/back.css">
+	</head>
+	<body onload="bal.reset();">
+		<form id="bal" action="/balance" method="post">
+			<br>
+			<h1 align="center">BALANCE</h1>
+			<div class="transbox">
+				<table>
+					<tr>
+						<th>
+							<h1>Enter the card number</h1>
+							<h1 align="center"><input type="password" name="card" required size="16" style="height: 50px; font-size:20pt;"
+							minlength="16" maxlength="16" placeholder="1234567887654321"><br></h1>
+							</th>
+						</tr>
+						<tr>
+							<th>
+								<input type="submit" value="Get Balance" size="20" style="height: 50px; font-size:20pt" ><br><br>
+							</th>
+						</tr>
+					</table>
+				<h1 align="center">THE CURRENT BALANCE IS {{balance}} </h1>
+			</div>
+		</form>
+	</body>
+</html>
