@@ -1,5 +1,6 @@
 //express - setup
 const express = require('express');
+const Noty = require('noty')
 // created the obj
 const app = express();
 require("./db/conn");
@@ -71,7 +72,8 @@ app.post('/loginCrd', async (req, res)=>{
         else{
             if(verify){
                 res.status(200).render('options',{
-                    name:Authdata.name
+                    name:Authdata.name,
+                    id:Authdata.id
                 });
             }
             else{
@@ -114,8 +116,33 @@ app.post('/account', async(req,res)=>{
 app.get('/withdrawal?',(req,res)=>{
     res.render('withdrawal');
 });
-app.get('/recharge?',(req,res)=>{
-    res.render('recharge');
+app.get('/recharge/:id', (req, res)=>{
+    res.render('recharge',{
+        id: req.params.id
+    })
+})
+app.post('/recharge/:id', async(req,res)=>{
+    try{
+        const id = req.params.id;
+        const amt = req.body.amt;
+        // console.log(id);
+        const fcardAuth = await users.findOne({_id:id});
+        // console.log(fcardAuth);
+        if(fcardAuth){
+            const deduct = parseInt(fcardAuth.balance) - parseInt(req.body.amt);
+            if(deduct < 0){
+               return res.send("Sorry Insufficient balance");
+            }
+            else{
+                const fcardUpdate = await users.updateOne({_id:id},{$set:{balance:deduct}});
+            }
+        }
+        res.render('success2')
+    }
+    catch(err){
+        console.log(err);
+    }
+    // res.render('recharge');
 });
 app.post('/success2', async (req,res)=>{
     res.render('success2')

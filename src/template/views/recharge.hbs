@@ -1,16 +1,16 @@
 <html>
 	<head>
 		<title>Mobile Recharge</title>
-		<link rel="stylesheet" type=text/css href="css/back.css">
+		<link rel="stylesheet" type=text/css href="/css/back.css">
 	</head>
 	<body>
-		<form action="/success2" method="post">
+		<form action="/recharge/{{id}}" method="post">
 		<br>
 		<h1 align="center">MOBILE RECHARGE</h1>
 		<div class="transbox">
 			<p id="h7">Mobile Number:<input type="text" minlength="10" maxlength="10" required size="30" style="height: 50px; font-size:20pt"></p>
 			<p id="h7">Operator:<input type="text" minlength="1" maxlength="10" required size="30" style="height: 50px; font-size:20pt"></p>
-			<p id="h8">Amount:<input type="text" required size="30" style="height: 50px; font-size:20pt" minlength="2"></p>
+			<p id="h8">Amount:<input type="text" required size="30" style="height: 50px; font-size:20pt" minlength="2" name="amt"></p>
 			
 				<p id="h9"><input type="submit" value="RECHARGE" size="30" style="height: 50px; font-size:20pt"></p>
 			
