@@ -47,7 +47,7 @@ app.post("/index", async (req, res)=>{
                     name: req.body.Name,
                     card: req.body.card,
                     pin: hash,
-            })
+                })
             const registered = await newUser.save();
             res.status(200).render('index');
         }
@@ -113,7 +113,7 @@ app.post('/account', async(req,res)=>{
     }
 });
 
-app.get('/withdrawal?',(req,res)=>{
+app.get('/withdrawal',(req,res)=>{
     res.render('withdrawal');
 });
 app.get('/recharge/:id', (req, res)=>{
@@ -169,8 +169,28 @@ app.post('/balance',async (req, res)=>{
     }
     
 });
-app.post('/success',(req, res)=>{
-    res.status(200).render('success')
+app.post('/success',async(req, res)=>{
+    try{
+        const amount = req.body.amt;
+        const card = req.body.card;
+        const cardAuth = await users.findOne({card:card});
+        console.log(cardAuth);
+        if(cardAuth.balance > amount){
+            // const addBalance = tcardAuth.balance + amount;
+            const subBalance = parseInt(cardAuth.balance) - parseInt(req.body.amt);
+            console.log(subBalance);
+            const fcardUpdate = await users.updateOne({card:card},{$set:{balance:subBalance}});
+            res.status(200).render('success')
+        }
+        else{
+            res.send("Sorry Insufficient balance");
+        }
+    }
+    catch(err){
+        console.log(err);
+        res.status(400).send("Not Valid")
+    }
+    // res.status(200).render('success')
 });
 app.listen(port, (err)=>{
     if(err){
